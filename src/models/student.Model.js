@@ -4,9 +4,10 @@ const sequelize = require("../config/dbConfig");
 const Student = sequelize.define("tbl_students", {
   studentId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    allowNull: true,
     primaryKey: true,
     autoIncrement: true,
+    unique:true
   },
   studentName: {
     type: Sequelize.STRING,

@@ -18,7 +18,13 @@ const getStudents = (req,res)=>{
 }
 
 const addStudent = (req,res)=>{
-    Student.create(req.body)
+    console.log(req.body)
+    Student.create({
+        studentName:req.body.studentName,
+        rollNo:req.body.rollNo,
+        mark1:req.body.mark1,
+        mark2:req.body.mark2
+    })
     .then((response)=>{
         res.status(200).json({
             status:1,
@@ -37,6 +43,7 @@ const addStudent = (req,res)=>{
 }
 
 const limitedStudents = (req,res)=>{
+    console.log(req.params.id)
     Student.findAll({})
     .then((response)=>{
         res.status(200).json({
